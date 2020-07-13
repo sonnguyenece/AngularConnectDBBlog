@@ -19,8 +19,11 @@ export class BlogComponent implements OnInit {
         error => (this.postList = []));
   }
 
-  // deletePost(i: number) {
-  //   this.postService.deletePost(i).subscribe(next => (this.postList = next),
-  //     error => (this.postList = []));
-  // }
+  deletePost(i: number) {
+    const post = this.postList[i];
+
+    this.postService.deletePost(post.id).subscribe(() => {
+      this.postList = this.postList.filter(t => t.id !== post.id);
+    });
+  }
 }

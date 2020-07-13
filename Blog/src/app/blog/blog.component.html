@@ -1,11 +1,11 @@
 <div class="container">
 <div *ngFor="let post of postList;index as i">
-<!--  <a href="">-->
-    <p><span>{{i + 1}}</span>.{{post.title|uppercase}}</p>
+  <a [routerLink]="blogEdit">
+    <p><span>{{i + 1}}</span>.{{post.title|uppercase}}<span style="margin-left: 20px">id:{{post.id}}</span>  </p>
     <p>{{post.body}}</p>
 <button class="btn btn-danger" (click)="deletePost(i)">Delete</button>
 <button class="btn btn-warning">Edit</button>
-<!--  </a>-->
+  </a>
   <hr>
 </div>
 </div>
